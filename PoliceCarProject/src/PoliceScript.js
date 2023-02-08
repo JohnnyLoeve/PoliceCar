@@ -21,3 +21,17 @@ function carLightOn(){
           document.getElementById('thief').src = "TyveBillede.png";
           }
         }
+
+    function catchThem(){
+        var element = document.getElementById('catchBtn');
+        element.classList.toggle("activeThree");
+
+        if(element.classList.contains("activeThree")){
+        document.getElementById("thief").src = "InPrison.png"
+        document.getElementById("light").src = "Politibil.png"
+        }
+        else{
+        document.getElementById("thief").src = "Tyve.gif"
+        }
+     }
+

@@ -40,6 +40,16 @@
   transform: translateY(-50%);
   animation: swipe 0.2s linear;
   }
+   button swipe2{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%
+  background-color: #fff
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  animation: swipe 0.2s linear;
+  }
   @keyframes swipe {
   0%{
   left: 135px;
@@ -53,8 +63,17 @@
   right: 40px;
   transform: translateY(-50%);
   }
+    button #text2{
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  }
   button.active #swipe1{
   animation: swipe1 0.2s linear;
+  animation-fill-mode: forwards;
+  }
+  button.active #swipe2{
+  animation: swipe2 0.2s linear;
   animation-fill-mode: forwards;
   }
   @keyframes identifier{
@@ -72,6 +91,11 @@ button.active #text1{
 right: initial;
 left: 40px;
 }
+button.active #text2{
+right: initial;
+left: 40px;
+}
+
 .header{
 background-color: #070e5e;
 padding: 20px;
@@ -105,7 +129,11 @@ margin-top: 150px;
    <!-- Column 1-->
     <div class="col-sm-4 ">
       <h3>Run little homies!</h3>
-      <img class="lowImage" height="250" id="thief" src="TyveBillede.png">
+      <img  class="lowImage" height="250" id="thief" src="TyveBillede.png">
+      <button id="catchBtn" onclick="catchThem(); myFunction2()">
+          <span id="swipe2"></span>
+          <span id="text2">Catch!</span>
+      </button>
     </div>
 
     <!-- Column 2-->
@@ -116,7 +144,7 @@ margin-top: 150px;
       </div>
     </div>
 
-    <!-- Column 4-->
+    <!-- Column 3-->
     <div class="col-sm-4 rightSide columnThreeAlign">
       <h3>Pedal to the metal?</h3>
       <button  id="switchbtn" onclick="myFunction(); carLightOn(); thiefRun()">
@@ -139,6 +167,21 @@ margin-top: 150px;
   else{
   document.getElementById('text1').innerText = "OFF";
   }
+}
+
+
+function myFunction2(){
+  myFunction();
+  var element = document.getElementById('catchBtn');
+  element.classList.toggle("active");
+
+  if(element.classList.contains('active')){
+  document.getElementById('text2').innerText = "Caught!";
+  }
+  else{
+  document.getElementById('text2').innerText = "Catch!";
+  }
+
 }
 </script>
 <script src="PoliceScript.js"></script>
